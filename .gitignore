@@ -11,8 +11,7 @@ Thumbs.db
 
 # Data
 data/*.csv, *.txt
-!data/insurance_claims.txt   
-data/
+!data/insurance_claims.txt  
 !data/insurance_claims.csv
 logs/
 *.log
