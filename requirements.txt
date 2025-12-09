@@ -8,3 +8,7 @@ xgboost
 shap
 dvc
 statsmodels
+pytest
+flake8
+black
+mypy

@@ -3,92 +3,210 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![DVC](https://img.shields.io/badge/Data%20Version%20Control-DVC-9cf)](https://dvc.org/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+![CI
+Pipeline](https://github.com/Mulat-K/insurance_analytics/actions/workflows/ci_pipeline.yml/badge.svg)
 
-**Repository:** [https://github.com/Mulat-K/insurance_analytics](https://github.com/Mulat-K/insurance_analytics)
+**Repository:** https://github.com/Mulat-K/insurance_analytics
 
----
+------------------------------------------------------------------------
 
-## 📌 Project Overview
-**AlphaCare Insurance Solutions (ACIS)** is optimizing its marketing strategy and risk assessment for car insurance in South Africa. As a Marketing Analytics Engineer, this project involves analyzing historical claim data to identify "low-risk" segments for premium reduction and building predictive models to estimate claim severity.
+## 🔍 Project Overview
 
-The project demonstrates an end-to-end data pipeline including **Exploratory Data Analysis (EDA)**, **Statistical A/B Testing**, **Data Version Control (DVC)**, and **Machine Learning**.
+**AlphaCare Insurance Solutions (ACIS)** is developing an advanced
+insurance analytics system for car insurance customers across South
+Africa.\
+Your role: **Marketing Analytics Engineer** responsible for end-to-end
+analysis of historical car insurance claim data.
 
----
+This project includes:
+
+-   Exploratory Data Analysis (EDA)
+-   Statistical A/B Testing
+-   Machine Learning Models (Linear Regression, Random Forest, XGBoost)
+-   SHAP-based explainability
+-   DVC-powered data versioning
+-   CI/CD using GitHub Actions
+
+------------------------------------------------------------------------
 
 ## 🚀 Business Objective
-The primary goals are:
 
-1. **Risk Analysis**: Understand risk differences across provinces, zip codes, gender, and vehicle types.  
-2. **Profitability**: Identify segments with high margins and low loss ratios.  
-3. **Predictive Modeling**: Build models to predict `TotalClaims` (severity) and optimize premiums using Linear Regression, XGBoost, and Random Forests.
+### The project aims to:
 
----
+1.  **Analyze risk** across provinces, gender, vehicle type, and zip
+    codes\
+2.  **Identify profitable low-risk segments**\
+3.  **Predict claim severity** (TotalClaims)\
+4.  **Support premium optimization** with data-driven models
 
-## 📂 Project Structure
-
-```text
-insurance_analytics/
-├── .dvc/                  # DVC configuration files
-├── .github/workflows/     # CI/CD pipelines (GitHub Actions)
-├── data/                  # Data directory (tracked by DVC)
-│   └── insurance_claims.csv.dvc
-├── notebooks/             # Jupyter Notebooks for analysis
-│   ├── 01_eda.ipynb               # Exploratory Data Analysis
-│   ├── 02_hypothesis_testing.ipynb # Statistical A/B Testing
-│   └── 03_predictive_modeling.ipynb # ML & SHAP Analysis
-├── src/                   # Source code for modular processing
-│   ├── data_loader.py
-│   ├── eda_utils.py
-│   └── modeling.py
-├── scripts/               # Utility scripts
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
-└── .gitignore
-```
+------------------------------------------------------------------------
 
 ## 🛠 Tech Stack
 
-- **Language:** Python 3.x  
-- **Data Manipulation:** Pandas, NumPy  
-- **Visualization:** Matplotlib, Seaborn  
-- **Machine Learning:** Scikit-Learn, XGBoost  
-- **Explainability:** SHAP (SHapley Additive exPlanations)  
-- **Version Control:** Git, DVC (Data Version Control)  
-- **Statistical Analysis:** Scipy (Stats)  
+  Category          Tools
+  ----------------- -----------------------
+  Language          Python 3.x
+  Data              Pandas, NumPy
+  Visualizations    Matplotlib, Seaborn
+  Modeling          Scikit-Learn, XGBoost
+  Explainability    SHAP
+  Statistics        Scipy
+  Version Control   Git + DVC
+  CI/CD             GitHub Actions
+  Testing           Pytest
+  Linting           Flake8
 
----
+------------------------------------------------------------------------
 
-## 📝 Key Features & Implementation
+## 📂 Project Structure
 
-### Task 1: Exploratory Data Analysis (EDA)
-- Deep-dive analysis of insurance dataset (Feb 2014 - Aug 2015).  
-- Handled missing values in `TotalClaims`, `TotalPremium`, and `Gender`.  
-- Created KPIs: Loss Ratio (`Claims/Premium`) and Margin.  
-- Visualized distributions of premiums and claims, risk heatmaps by Province and Vehicle Type.  
+``` text
+insurance_analytics/
+├── .dvc/                       
+├── .github/workflows/          
+│   └── ci_pipeline.yml
+├── data/
+│   └── insurance_claims.csv.dvc
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   ├── 02_hypothesis_testing.ipynb
+│   └── 03_predictive_modeling.ipynb
+├── src/
+│   ├── data_loader.py
+│   ├── eda_utils.py
+│   └── modeling.py
+├── scripts/
+├── tests/
+│   └── test_sample.py
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 
-### Task 2: Data Version Control (DVC)
-- Implemented DVC to ensure reproducibility and auditability of data.  
-- Raw data tracked via `.dvc` files.  
-- Remote storage simulation enabled for team collaboration.  
+------------------------------------------------------------------------
 
-### Task 3: A/B Hypothesis Testing
-- Validated business assumptions using statistical tests (Chi-Squared, T-Tests, ANOVA).  
-- **Provinces:** Tested for risk differences across provinces.  
-- **Zip Codes:** Analyzed margin differences between regions.  
-- **Gender:** Investigated if Gender has a statistically significant impact on risk.  
+## 📊 Features & Implementation
 
-### Task 4: Predictive Modeling
-- Built and evaluated models to predict Claim Severity (`TotalClaims` for incidents > 0).  
-- **Models:** Linear Regression (per ZipCode), Random Forest, XGBoost.  
-- **Evaluation Metrics:** RMSE, MAE, R-Squared.  
-- **Interpretability:** Used SHAP plots to identify top drivers of risk (e.g., Vehicle Age, SumInsured).  
+### 1️⃣ Exploratory Data Analysis (EDA)
 
----
+-   Missing value treatment\
+-   Statistical summary of `TotalPremium`, `TotalClaims`\
+-   Loss Ratio & Margin calculation\
+-   Heatmaps, boxplots, histograms\
+-   Risk analysis by: Province, Gender, Vehicle Type, Zip Code
+
+------------------------------------------------------------------------
+
+### 2️⃣ Hypothesis Testing (A/B Testing)
+
+-   T‑Tests\
+-   Chi‑Squared Tests\
+-   ANOVA
+
+Validates assumptions like:
+
+-   Are some provinces riskier?
+-   Does gender affect claim severity?
+
+------------------------------------------------------------------------
+
+### 3️⃣ Predictive Modeling
+
+Models:
+
+-   Linear Regression\
+-   Random Forest\
+-   XGBoost
+
+Metrics:
+
+-   RMSE\
+-   MAE\
+-   R² Score
+
+Explainability: **SHAP**
+
+------------------------------------------------------------------------
+
+### 4️⃣ Data Version Control (DVC)
+
+``` bash
+dvc init
+dvc add data/insurance_claims.csv
+dvc remote add -d storage remote_path
+dvc push
+```
+
+------------------------------------------------------------------------
+
+## 🔄 CI/CD Pipeline (GitHub Actions)
+
+-   Flake8 linting\
+-   Pytest testing
+
+Run locally:
+
+``` bash
+pytest tests/
+```
+
+------------------------------------------------------------------------
 
 ## ⚙️ Installation & Setup
 
-### Clone the Repository
-```bash
+``` bash
 git clone https://github.com/Mulat-K/insurance_analytics.git
 cd insurance_analytics
+```
 
+### Create virtual environment
+
+``` bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate   # Windows
+```
+
+### Install dependencies
+
+``` bash
+pip install -r requirements.txt
+```
+
+### Pull data via DVC
+
+``` bash
+dvc pull
+```
+
+------------------------------------------------------------------------
+
+## 🏁 Running the Project
+
+Open notebooks:
+
+``` bash
+jupyter notebook notebooks/01_eda.ipynb
+```
+
+------------------------------------------------------------------------
+
+## 🧪 Testing & Git Best Practices
+
+-   Atomic commits\
+-   Feature branches\
+-   WIP commits for long tasks\
+-   Run CI checks before pushing
+
+------------------------------------------------------------------------
+
+## 📜 License
+
+MIT License
+
+------------------------------------------------------------------------
+
+## 📧 Contact
+
+**Developer:** Mulatie Kindie\
+Email: mulatiekinde@gmail.com
